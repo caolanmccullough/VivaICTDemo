@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Interactive Classroom Tool</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Interactive Classroom Tool</a>
+    </div>
+     </div>
+</nav>
+<div class="container-fluid main-container">
+   <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+  <% for(var i=0; i<polls4.length; i++) {%>
+      <h3><%= polls4[i].pollTitle %></h3>
+      <p><%= polls4[i].pollQuestion %></p>
+
+</ul>
+<form id="votingFormForICT">
+        <p>
+          <input type="radio" name="answer" id="yes" value="yes">
+          <label for="yes"><%= polls4[i].answer1 %></label>
+        </p>
+        <p>
+        <input type="radio" name="answer" id="no" value="no">
+        <label for="no"><%= polls4[i].answer2 %></label>
+      </p>
+      <p>
+        <input type="radio" name="answer" id="unsure" value="unsure">
+        <label for="unsure"><%= polls4[i].answer3 %></label>
+      </p>
+        <input type="submit" name="Vote" class="btn" value="Submit Vote">
+        <br><br><br>
+        <form action="/billy" method="GET" class="form-group">
+    <h2 style="text-align: center" id="chartTitle"></h2>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div> 
+<% } %>     
+</form>
+</form>
+        
+    <br><br>
+    <button class="detailsButton"><a href="/homepage">Return Back to homepage</a></button>
+</div>
+   <div class="col-sm-3"></div>
+
+
+
+
+
+</div>
+</body>
+<!-- Footer -->
+<footer class="container-footer footer-ejs text-center">
+
+        <p>&copy; 2018 Ulster University.</p>
+      </footer>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+ -->    
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pusher/4.2.2/pusher.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+  <script src="main.js"></script>
+    <script src="chat.js"></script>

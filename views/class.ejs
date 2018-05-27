@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Interactive Classroom Tool</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <style>
+
+        table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    align-self: : center;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+table th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:hover {background-color: #4AB3F4;}
+
+#myInput {
+
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      margin-left: 37%;
+    margin-top: 5%;
+    width: 30%;
+    background-color:#4AB3F4;
+    color: white;
+}
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Interactive Classroom Tool</a>
+    </div>
+     </div>
+</nav>
+<div class="container-fluid main-container">
+  
+<input type="text" id="myInput" onkeyup="searchUsers()" placeholder="Search for Student..">
+
+<table id="userTable" width='80%' border=0>
+
+  <tr style='text-align:left; background-color:#4AB3F4'>
+    <th>B00 Cpde</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Username</th>
+  </tr>
+  
+  <% if (data) { %>
+  <% data.forEach(function(user){ %>
+    <tr>
+      <td><%= user.booCode %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.username %></td>
+        </div>
+    </tr>
+  <% }) %>
+  <% } %>
+
+</table>
+
+<button class="detailsButton"><a href="/homepage">Return Back to homepage</a></button>
+
+
+</div>
+<!-- Footer -->
+<footer class="container-footer footer-ejs text-center">
+
+        <p>&copy; 2018 Ulster University.</p>
+      </footer>
+
+<script>
+function searchUsers() {
+    // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  //Uses table with id 
+  table = document.getElementById("userTable");
+  tr = table.getElementsByTagName("tr");
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
